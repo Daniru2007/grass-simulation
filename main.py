@@ -15,13 +15,16 @@ player.load_animations("animations/player.json")
 player.set_action("idle")
 
 grass_images = [pygame.image.load("imgs/grass/grass_1.png"),
-pygame.image.load("imgs/grass/grass_2.png")]
+pygame.image.load("imgs/grass/grass_2.png"),
+pygame.image.load("imgs/grass/grass_3.png"),
+pygame.image.load("imgs/grass/grass_4.png")
+]
 
 tiles = []
 grasses = []
 for i in range(30):
     for _ in range(random.randint(5, 10)):
-        grasses.append([random.randint(0, 1),pygame.Rect((i * 16) + random.randint(0, 16), 240, 4, 4), random.randint(-90, 90)])
+        grasses.append([random.randint(0, 3),pygame.Rect((i * 16) + random.randint(0, 16), 240, 4, 4), random.randint(-90, 90)])
     tiles.append(["1", pygame.Rect(i * 16, 250, 16, 16)])
 running = True
 while running:
