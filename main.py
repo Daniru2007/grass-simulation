@@ -24,7 +24,7 @@ tiles = []
 grasses = []
 for i in range(30):
     for _ in range(random.randint(5, 10)):
-        grasses.append([random.randint(0, 3),pygame.Rect((i * 16) + random.randint(0, 16), 240, 4, 4), random.randint(-90, 90)])
+        grasses.append([random.randint(0, 1),pygame.Rect((i * 16) + random.randint(0, 16), 230, 16, 16), random.randint(-90, 90)])
     tiles.append(["1", pygame.Rect(i * 16, 250, 16, 16)])
 running = True
 while running:
@@ -33,7 +33,7 @@ while running:
         player.gravity = 2
 
     player.air_time += 1
-    player.movement = [0,0]
+    player.movement = [0, 0]
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -69,7 +69,7 @@ while running:
         rotation = 30
         if grass[1].colliderect(player.rect()):
             rotation = grass[2]
-        screen.blit(pygame.transform.rotate(grass_images[grass[0]], rotation), grass[1])
+        screen.blit(pygame.transform.rotate(grass_images[grass[0]], rotation),grass[1])
     pygame.display.update()
     clock.tick(60)
 pygame.quit()
