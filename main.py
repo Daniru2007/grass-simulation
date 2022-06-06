@@ -23,8 +23,8 @@ pygame.image.load("imgs/grass/grass_4.png")
 tiles = []
 grasses = []
 for i in range(30):
-    for _ in range(random.randint(5, 10)):
-        grasses.append([random.randint(0, 1),pygame.Rect((i * 16) + random.randint(0, 16), 230, 16, 16), random.randint(-90, 90)])
+    for _ in range(15):
+        grasses.append([random.randint(0, 1),pygame.Rect((i * 16) + random.randint(0, 16), 220, 16, 16), random.randint(-90, 90)])
     tiles.append(["1", pygame.Rect(i * 16, 250, 16, 16)])
 running = True
 while running:
@@ -69,7 +69,8 @@ while running:
         rotation = 30
         if grass[1].colliderect(player.rect()):
             rotation = grass[2]
-        screen.blit(pygame.transform.rotate(grass_images[grass[0]], rotation),grass[1])
+        img_copy = pygame.transform.rotate(grass_images[grass[0]], rotation)
+        screen.blit(img_copy ,(grass[1].x - img_copy.get_width()/2, grass[1].y - img_copy.get_height()/2))
     pygame.display.update()
     clock.tick(60)
 pygame.quit()
